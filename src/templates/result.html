@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Food Image Classification Result</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1 class="mb-4">Prediction Result</h1>
+      <p>Class: {{ prediction }}</p>
+      <img src="{{ url_for('static', filename='uploads/' + image_url.split('/')[-1]) }}" alt="Uploaded Image" class="img-fluid">
+      <br><br>
+      <a href="{{ url_for('index') }}" class="btn btn-primary">Upload another image</a>
+    </div>
+  </body>
+</html>
