@@ -45,6 +45,8 @@ import KoreanFoodb6 from './images/man3.jpg';
 const App = () => {
   const [image, setImage] = useState(null);
   const [foodName, setFoodName] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   const handleDrop = (acceptedFiles) => {
     const file = acceptedFiles[0];
@@ -56,18 +58,32 @@ const App = () => {
     const formData = new FormData();
     formData.append('file', file);
 
-    axios.post('http://127.0.0.1:5000/predict', formData)
-      .then(response => {
-        console.log(response.data); // Debug: log response data
+    setLoading(true);
+    setError(null);
+    setFoodName('');
+
+    axios.post('http://127.0.0.1:5000/predict', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    })
+      .then((response) => {
+        console.log(response.data);
         setFoodName(response.data.foodName);
       })
-      .catch(error => console.error('Error uploading image:', error));
+      .catch((error) => {
+        console.error('Error uploading image:', error);
+        setError('Error uploading image');
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   };
 
   const handleImageClick = (src) => {
     fetch(src)
-      .then(res => res.blob())
-      .then(blob => {
+      .then((res) => res.blob())
+      .then((blob) => {
         const file = new File([blob], 'food.jpg', { type: blob.type });
         setImage(URL.createObjectURL(file));
         predictFood(file);
@@ -98,10 +114,11 @@ const App = () => {
             )}
           </Dropzone>
           {image && <img src={image} alt="Uploaded food" className="uploaded-image" />}
+          {loading && <p>Loading...</p>}
+          {error && <p>{error}</p>}
           {foodName && <h2>Recognized Food: {foodName}</h2>}
         </section>
         <section id="common-foods">
-        
           {/* Add common foods content here */}
         </section>
         <section id="korean-foods">
