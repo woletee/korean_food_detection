@@ -1,6 +1,9 @@
 # Food Recognition Web Application
 
 This project is a web application that uses a deep learning model (ResNet) to recognize food items from images. The frontend is built with React.js, and the backend is powered by Flask. The application allows users to upload an image of food, and the model predicts the name of the food item.
+### [Live Demo](https://main.dg2f0zi3cpqzs.amplifyapp.com/)
+
+You can visit the deployed application by clicking the link above.
 
 ## Table of Contents
 
