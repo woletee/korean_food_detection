@@ -4,6 +4,11 @@ This project is a web application that uses a deep learning model (ResNet) to re
 ### [Live Demo of the website click here! ](https://main.dg2f0zi3cpqzs.amplifyapp.com/)
 
 You can visit the deployed application by clicking the link above.
+## Interface
+
+![Food Recognition Interface](/interface.png)
+
+*Sample image of the Food Recognition web application interface.*
 
 ## Table of Contents
 
