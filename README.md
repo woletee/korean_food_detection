@@ -40,6 +40,12 @@ The project is organized as follows:
 - **Python 3.6+**
 - **Node.js**
 - **npm (Node Package Manager)**
+## Model Information
+
+- **Model Used**: **ResNet**
+  - The ResNet (Residual Network) model is a powerful deep learning model known for its ability to train very deep neural networks effectively. In this project, ResNet is used to identify and classify food items from images.
+  - **Training**: The model was trained on a comprehensive dataset of food images to accurately recognize various food items.
+  - **Saved Model**: The trained ResNet model is saved in the files `food_saved_model.h5` and `foods_saved_model.h5`.
 
 ### Backend Setup
 
