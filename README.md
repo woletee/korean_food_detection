@@ -6,7 +6,8 @@ This project is a web application that uses a deep learning model (ResNet) to re
 You can visit the deployed application by clicking the link above.
 ## Interface
 
-![Food Recognition Interface](/interface.png)
+![Food Recognition Interface](/Interface.png
+)
 
 *Sample image of the Food Recognition web application interface.*
 
